@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Okay But Hear Me Out 🥺</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Quicksand', sans-serif;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    background:linear-gradient(135deg,#ffe5ec,#ffd6e0);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:#444;
+}
+
+/* Floating hearts */
+body::before{
+    content:"💗 💕 💗 💕 💗";
+    position:absolute;
+    top:20%;
+    left:-100%;
+    font-size:30px;
+    animation:float 20s linear infinite;
+    opacity:0.3;
+}
+
+@keyframes float{
+    0%{ left:-100%; }
+    100%{ left:100%; }
+}
+
+.container{
+    max-width:500px;
+    padding:20px;
+    transition:0.6s;
+}
+
+h1{
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+p{
+    margin-bottom:20px;
+    font-size:18px;
+}
+
+button{
+    padding:12px 28px;
+    border:none;
+    border-radius:30px;
+    background:#ff8fab;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+    margin:8px;
+}
+
+button:hover{
+    background:#ff5d8f;
+    transform:scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="content">
+    <h1>Okay but… hear me out 🥺</h1>
+    <p>I come in peace. No arguments. Just vibes.</p>
+    <button onclick="nextPage()">Continueee 💗</button>
+</div>
+
+<script>
+let step = 0;
+
+function nextPage(){
+    const content = document.getElementById("content");
+
+    if(step === 0){
+        content.innerHTML = `
+        <h1>So… maybe I was a little dramatic 🫣</h1>
+        <p>
+        Maybe I overreacted.<br>
+        Maybe I should've just hugged you instead.<br><br>
+        But one thing I know for sure?<br>
+        I don’t like being mad at you.
+        </p>
+        <button onclick="nextPage()">Okay next 😌</button>
+        `;
+        step++;
+    }
+
+    else if(step === 1){
+        content.innerHTML = `
+        <h1>I miss annoying you 🥺💗</h1>
+        <p>This silence is honestly so boring.</p>
+        <button onclick="nextPage()">Final step 👉</button>
+        `;
+        step++;
+    }
+
+    else{
+        content.innerHTML = `
+        <h1>Can we go back to being cute again? 💞</h1>
+        <button onclick="forgive()">💖 Yes, obviously</button>
+        <button id="noBtn" onmouseover="moveButton()">😒 No</button>
+        <p style="margin-top:30px;font-size:14px;opacity:0.6;">
+        Made with love by MemoryWebs
+        </p>
+        `;
+    }
+}
+
+function forgive(){
+    document.getElementById("content").innerHTML = `
+    <h1>YAYYY 🥹💗</h1>
+    <p>Okay come here. Virtual hug loading… 🤗</p>
+    `;
+}
+
+function moveButton(){
+    const btn = document.getElementById("noBtn");
+    btn.style.position = "absolute";
+    btn.style.top = Math.random() * 80 + "%";
+    btn.style.left = Math.random() * 80 + "%";
+}
+</script>
+
+</body>
+</html>
